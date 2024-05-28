@@ -10,7 +10,7 @@ import '../manager/bingo_cubit.dart';
 import '../widget/item_card_widget.dart';
 
 class BingoGameScreen extends StatelessWidget {
-  final Function(
+  final void Function(
       {required bool stateOfStringIsWord,
       required String stateOfStringWillSay}) actionOfSavrIns;
   final Function() animationOfCorrectAnswer;

@@ -6,7 +6,7 @@ import 'manager/bingo_cubit.dart';
 import 'models/game_model.dart';
 
 class MainOfBingo extends StatelessWidget {
-  final Function(
+  final void Function(
       {required bool stateOfStringIsWord,
       required String stateOfStringWillSay}) actionOfSavrIns;
   final Function() animationOfCorrectAnswer;
