@@ -6,23 +6,20 @@ import 'package:meta/meta.dart';
 
 import '../../core/assets_sound.dart';
 import '../../core/audio_player.dart';
-import '../models/game_letters_model.dart';
-import '../models/game_model.dart';
-
 part 'bingo_state.dart';
 
 class BingoCubit extends Cubit<BingoInitial> {
-  final GameModel gameData;
+  final dynamic gameData;
 
   BingoCubit({required this.gameData})
       : super(BingoInitial(gameData: gameData)) {
     // bool haveNullId  =  (gameData.gameLetters ?? []).where((element) => element.id == null).toList().isNotEmpty;
     // if(haveNullId == false) {
-    List<GameLettersModel> supList = (gameData.gameLetters ?? [])
+    List<dynamic> supList = (gameData.gameLetters ?? [])
         .where((element) => element.id != null)
         .toList();
     // supList.addAll(List.from(supList));
-    supList.insert(4, GameLettersModel());
+    supList.insert(4, '');
     emit(state.copyWith(cardsLetters: supList.toList()));
     // }
     print("supList:${state.cardsLetters?.length}");
@@ -34,13 +31,13 @@ class BingoCubit extends Cubit<BingoInitial> {
   }
 
   getTheRandomWord({required bool awaitTime}) async {
-    List<GameLettersModel> checkImages = [];
+    List<dynamic> checkImages = [];
 
     state.cardsLetters?.forEach((element) {
-      print('element.id${element.id}');
+      print('element.id${element?.id}');
       print('${state.correctIndexes}');
       if (state.correctIndexes == null ||
-          (state.correctIndexes?.contains(element.id) == false)) {
+          (state.correctIndexes?.contains(element?.id) == false)) {
         checkImages.add(element);
       }
     });
@@ -48,7 +45,7 @@ class BingoCubit extends Cubit<BingoInitial> {
     if (countOfTheImage != 0) {
       Random random = Random();
       int randomNumber = random.nextInt(countOfTheImage);
-      GameLettersModel chooseWord = checkImages[randomNumber];
+      dynamic chooseWord = checkImages[randomNumber];
       if (chooseWord.id == null) {
         getTheRandomWord(awaitTime: awaitTime);
         return;

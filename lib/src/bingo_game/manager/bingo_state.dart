@@ -2,12 +2,12 @@ part of 'bingo_cubit.dart';
 
 @immutable
 class BingoInitial extends Equatable {
-  List<GameLettersModel>? cardsLetters;
-  GameModel? gameData;
+  List<dynamic>? cardsLetters;
+  dynamic? gameData;
   List<int>? correctIndexes;
   int? correctAnswer;
   bool? stopAction;
-  GameLettersModel? chooseWord;
+  dynamic? chooseWord;
 
   BingoInitial(
       {this.gameData,
@@ -18,9 +18,9 @@ class BingoInitial extends Equatable {
       this.chooseWord});
 
   BingoInitial copyWith(
-      {GameModel? gameData,
-      List<GameLettersModel>? cardsLetters,
-      GameLettersModel? chooseWord,
+      {dynamic? gameData,
+      List<dynamic>? cardsLetters,
+      dynamic? chooseWord,
       int? correctAnswer,
       bool? stopAction,
       List<String>? indexOfCorrectAnswers,
@@ -34,12 +34,17 @@ class BingoInitial extends Equatable {
         correctIndexes: correctIndexes ?? this.correctIndexes);
   }
 
-
   BingoInitial clearAllData() {
     return BingoInitial();
   }
 
   @override
-  List<Object?> get props =>
-      [gameData, correctIndexes, cardsLetters, correctAnswer, chooseWord, stopAction];
+  List<Object?> get props => [
+        gameData,
+        correctIndexes,
+        cardsLetters,
+        correctAnswer,
+        chooseWord,
+        stopAction
+      ];
 }

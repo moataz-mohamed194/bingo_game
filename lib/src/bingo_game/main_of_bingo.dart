@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'manager/bingo_cubit.dart';
-import 'models/game_model.dart';
 
 class MainOfBingo extends StatelessWidget {
   final void Function(bool stateOfStringIsWord, String stateOfStringWillSay)
@@ -11,7 +10,7 @@ class MainOfBingo extends StatelessWidget {
   final Function() animationOfCorrectAnswer;
   final Function() backToMainAvatar;
   final Function() addWrongAnswer;
-  final List<GameModel> data;
+  final List<dynamic> data;
   final int index;
   final String? stateOfAvatar;
 
