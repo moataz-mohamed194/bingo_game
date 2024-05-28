@@ -10,9 +10,8 @@ import '../manager/bingo_cubit.dart';
 import '../widget/item_card_widget.dart';
 
 class BingoGameScreen extends StatelessWidget {
-  final void Function(
-      {required bool stateOfStringIsWord,
-      required String stateOfStringWillSay}) actionOfSavrIns;
+  final void Function(bool stateOfStringIsWord, String stateOfStringWillSay)
+      actionOfSavrIns;
   final Function() animationOfCorrectAnswer;
   final Function() backToMainAvatar;
   final Function() addWrongAnswer;
@@ -45,9 +44,7 @@ class BingoGameScreen extends StatelessWidget {
                 Border.all(color: AppColorPhonetics.DarkBorderColor, width: 5)),
         child:
             BlocConsumer<BingoCubit, BingoInitial>(listener: (context, state) {
-          actionOfSavrIns(
-              stateOfStringIsWord: false,
-              stateOfStringWillSay: state.chooseWord?.letter ?? '');
+          actionOfSavrIns(false, state.chooseWord?.letter ?? '');
         }, builder: (context, gameState) {
           return Center(
               child: Wrap(
